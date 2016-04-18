@@ -41,14 +41,22 @@ THIRD_PARTY_APPS = (
     'allauth.socialaccount',  # registration
 )
 
+# add by wwj
+REST_FRAMEWORD = (
+# Third party apps
+        'rest_framework',            # utilities for rest apis
+        'rest_framework.authtoken',  # token authentication
+)
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'rest_server.users',  # custom users app
     # Your stuff: custom apps go here
+    'rest_server.posts',
+    'rest_server.authentication',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + REST_FRAMEWORD + LOCAL_APPS
 
 # MIDDLEWARE CONFIGURATION
 # ------------------------------------------------------------------------------
@@ -237,3 +245,23 @@ BROKER_URL = env('CELERY_BROKER_URL', default='django://')
 ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
+
+# add by wwj
+# Django Rest Framework
+REST_FRAMEWORK = {
+        'PAGINATE_BY': 30,
+        'PAGINATE_BY_PARAM': 'per_page',
+        'MAX_PAGINATE_BY': 1000,
+        "DATETIME_FORMAT": "%Y-%m-%dT%H:%M:%S%z",
+        'DEFAULT_RENDERER_CLASSES': (
+            'rest_framework.renderers.JSONRenderer',
+            'rest_framework.renderers.BrowsableAPIRenderer',
+        ),
+        'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.IsAuthenticated',
+        ],
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework.authentication.SessionAuthentication',
+            'rest_framework.authentication.TokenAuthentication',
+        )
+    }
