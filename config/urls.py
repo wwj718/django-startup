@@ -41,7 +41,7 @@ urlpatterns = [
     url(settings.ADMIN_URL, include(admin.site.urls)),
 
     # User management
-    url(r'^users/', include('rest_server.users.urls', namespace='users')),
+    url(r'^users/', include('rest_server.users.urls', namespace='users')), #django 新版的用户模型发生了变化,这个可以取消吧,应该是拓展
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here

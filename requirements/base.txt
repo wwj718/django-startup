@@ -48,3 +48,5 @@ djangorestframework==3.3.2
 Markdown==2.6.5
 django-filter==0.11.0
 #use mkdocs
+#CORS
+django-cors-headers==1.1.0

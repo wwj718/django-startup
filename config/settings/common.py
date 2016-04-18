@@ -46,6 +46,7 @@ REST_FRAMEWORD = (
 # Third party apps
         'rest_framework',            # utilities for rest apis
         'rest_framework.authtoken',  # token authentication
+        'corsheaders', # CORS
 )
 # Apps specific for this project go here.
 LOCAL_APPS = (
@@ -63,6 +64,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + REST_FRAMEWORD + LOCAL_APPS
 MIDDLEWARE_CLASSES = (
     # Make sure djangosecure.middleware.SecurityMiddleware is listed first
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -265,3 +267,5 @@ REST_FRAMEWORK = {
             'rest_framework.authentication.TokenAuthentication',
         )
     }
+
+CORS_ORIGIN_ALLOW_ALL = True
