@@ -42,13 +42,14 @@ CACHES = {
 MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 INSTALLED_APPS += ('debug_toolbar', )
 
-INTERNAL_IPS = ('127.0.0.1', '10.0.2.2',)
+INTERNAL_IPS = ('127.0.0.1', '10.0.2.2','192.168.99.1')
 
 DEBUG_TOOLBAR_CONFIG = {
     'DISABLE_PANELS': [
         'debug_toolbar.panels.redirects.RedirectsPanel',
     ],
     'SHOW_TEMPLATE_CONTEXT': True,
+    'JQUERY_URL':"http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js" #offline
 }
 
 # django-extensions
@@ -65,3 +66,5 @@ CELERY_ALWAYS_EAGER = True
 ########## END CELERY
 
 # Your local stuff: Below this line define 3rd party library settings
+print SECRET_KEY
+ADMIN_URL = env('DJANGO_ADMIN_URL',default='admin')
