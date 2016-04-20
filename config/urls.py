@@ -50,6 +50,7 @@ urlpatterns = [
     # http://www.django-rest-framework.org/api-guide/routers/#defaultrouter
     url(r'^api/authentication/', include('rest_server.authentication.urls')),
     url(r'^posts/', include('rest_server.posts.urls')),
+    url(r'^snippets/', include('rest_server.snippets.urls')),
     #url(r'^api/v1/', include(router.urls)),
     #url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),

@@ -53,6 +53,7 @@ LOCAL_APPS = (
     'rest_server.users',  # custom users app
     # Your stuff: custom apps go here
     'rest_server.posts',
+    'rest_server.snippets',
     'rest_server.authentication',
 )
 
